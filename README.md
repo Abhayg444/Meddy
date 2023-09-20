@@ -72,9 +72,11 @@ For specific details about medications and their usage, please refer to the appl
 Here are some screenshots from the Meddy application:
 
 **Screenshot 1: Home Screen**
+
 ![Home Screen](home.png)
 
 **Screenshot 2: Symptom Input & Dieases prediction & Medical suggestions**
+
 ![Symptom Input](sym_predict.png)
 
 
