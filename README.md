@@ -52,10 +52,7 @@ To get started with Meddy, follow these installation steps:
    ```
 
 4. **Launch the Application**:
-   Run the application script:
-   ```
-   python meddy.py
-   ```
+   Open the VS Code Editor and open the ipynb file and execute the Cells one by one
 
 ---
 
