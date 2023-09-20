@@ -5,9 +5,10 @@ Meddy is an innovative disease prediction application that leverages the power o
 ## Table of Contents
 
 - [Features](#features)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Precautions](#precautions)
-- [Available Medications](#medications)
+- [Available Medications](#availablemedications)
 - [Screenshots](#screenshots)
 
 ---
@@ -30,6 +31,34 @@ Based on the predicted diseases, Meddy offers health recommendations, including 
 Find detailed information about the medications associated with specific diseases, including dosage instructions and potential side effects.
 
 ---
+## Installation
+
+To get started with Meddy, follow these installation steps:
+
+1. **Clone the Repository**:
+   ```
+   git clone https://github.com/yourusername/meddy.git
+   ```
+
+2. **Navigate to the Meddy Directory**:
+   ```
+   cd meddy
+   ```
+
+3. **Install Dependencies**:
+   Use pip to install the required Python packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+4. **Launch the Application**:
+   Run the application script:
+   ```
+   python meddy.py
+   ```
+
+---
+
 
 ## Usage
 
@@ -79,5 +108,12 @@ Here are some screenshots from the Meddy application:
 
 ![Symptom Input](sym_predict.png)
 
+Thank you for choosing Meddy to empower your healthcare decisions!
+
+
+For more information about Meddy, including updates, support, and frequently asked questions, please visit our website or contact our support team.
+
+Website: [www.meddyapp.com](https://www.meddyapp.com)
+Support: [support@meddyapp.com](mailto:support@meddyapp.com)
 
 Thank you for choosing Meddy to empower your healthcare decisions!
