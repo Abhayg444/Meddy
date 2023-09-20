@@ -105,12 +105,4 @@ Here are some screenshots from the Meddy application:
 
 ![Symptom Input](sym_predict.png)
 
-Thank you for choosing Meddy to empower your healthcare decisions!
-
-
-For more information about Meddy, including updates, support, and frequently asked questions, please visit our website or contact our support team.
-
-Website: [www.meddyapp.com](https://www.meddyapp.com)
-Support: [support@meddyapp.com](mailto:support@meddyapp.com)
-
-Thank you for choosing Meddy to empower your healthcare decisions!
+Thank you for choosing Meddy to empower your healthcare decisions!!
