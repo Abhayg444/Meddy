@@ -208,14 +208,14 @@ with open('disease_info.json', 'r') as file:
 def get_disease_info(disease_name):
     best_match = None
     best_score = 0
-    
+
     # Iterate through disease names and find the best match
     for known_disease_name in disease_data.keys():
         similarity_score = fuzz.ratio(disease_name.lower(), known_disease_name.lower())
         if similarity_score > best_score:
             best_score = similarity_score
             best_match = known_disease_name
-    
+
     # If a reasonably similar disease name is found, return its information
     if best_score >= 70:  # You can adjust this threshold as needed
         return disease_data[best_match]
@@ -230,54 +230,47 @@ loaded_svm_model = joblib.load('final_svm_model.pkl')
 loaded_nb_model = joblib.load('final_nb_model.pkl')
 loaded_rf_model = joblib.load('final_rf_model.pkl')
 symptoms = X.columns.values
-# Creating a symptom index dictionary to encode the
-# input symptoms into numerical form
+
 symptom_index = {}
 for index, value in enumerate(symptoms):
-    symptom = " ".join([i.capitalize() for i in value.split("_")])
+    symptom = " ".join([i.lower() for i in value.split("_")])
     symptom_index[symptom] = index
 
 data_dict = {
     "symptom_index": symptom_index,
     "predictions_classes": encoder.classes_
 }
+def predictDisease(input_symptoms):
+    input_symptoms = input_symptoms.lower()
+    symptoms = input_symptoms.split(",")
 
-# Defining the Function
-# Input: string containing symptoms separated by commas
-# Output: Generated predictions by models
-def predictDisease(symptoms):
-    symptoms = symptoms.split(",")
-
-    # creating input data for the models
     input_data = [0] * len(data_dict["symptom_index"])
     for symptom in symptoms:
+        symptom = symptom.strip() 
         if symptom in data_dict["symptom_index"]:
             index = data_dict["symptom_index"][symptom]
             input_data[index] = 1
+        else:
+            return "Symptom '{}' not in the database.".format(symptom)
 
-    # reshaping the input data and converting it
-    # into suitable format for model predictions
+    if sum(input_data) == 0:
+        return "None of the input symptoms are in the database."
+
     input_data = np.array(input_data).reshape(1, -1)
 
-    # generating individual outputs
-    rf_prediction = data_dict["predictions_classes"][final_rf_model.predict(input_data)[0]]
-    nb_prediction = data_dict["predictions_classes"][final_nb_model.predict(input_data)[0]]
-    svm_prediction = data_dict["predictions_classes"][final_svm_model.predict(input_data)[0]]
+    rf_prediction = data_dict["predictions_classes"][loaded_rf_model.predict(input_data)[0]]
+    nb_prediction = data_dict["predictions_classes"][loaded_nb_model.predict(input_data)[0]]
+    svm_prediction = data_dict["predictions_classes"][loaded_svm_model.predict(input_data)[0]]
 
-    
-    # making final prediction by taking mode of all predictions
     final_prediction = mode([rf_prediction, nb_prediction, svm_prediction])
-    '''predictions = {
-        "rf_model_prediction": rf_prediction,
-        "naive_bayes_prediction": nb_prediction,
-        "svm_model_prediction": svm_prediction,
-        "final_prediction": final_prediction
-    }'''
-    pre = "You maybe suffering from "+final_prediction+"\n"
+
+    if final_prediction not in data_dict["predictions_classes"]:
+        return "Disease '{}' is not in the database.".format(final_prediction)
+
+    pre = "You may be suffering from " + final_prediction + "\n"
     disease_info = get_disease_info(final_prediction)
-        
+
     if isinstance(disease_info, dict):
-        # Iterate through the dictionary and add its contents to pre
         for key, value in disease_info.items():
             if isinstance(value, list):
                 pre += key + ":\n"
@@ -286,14 +279,13 @@ def predictDisease(symptoms):
             else:
                 pre += key + ": " + value + "\n"
 
-    pre += "\n If you are still Unsure about the prediction \n Please contact a medical professional for Better advice"
+    pre += "\n If you are still unsure about the prediction, please contact a medical professional for better advice."
 
     return pre
-
 # Testing the function
 print(symptom_index)
 print("\n\n")
-print(predictDisease("Yellow Crust Ooze"))
+print(predictDisease("Silly"))
 
 # %% [markdown]
 # ##Creating GUI for Application
