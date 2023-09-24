@@ -4,6 +4,7 @@ import numpy as np
 from statistics import mode
 from tkinter import *
 from fuzzywuzzy import fuzz
+import time
 BG_GRAY = "white"
 BG_COLOR = "white"
 TEXT_COLOR = "black"
@@ -78,7 +79,7 @@ def predictDisease(input_symptoms):
                 pre += key + ": " + value + "\n"
 
     pre += "\n If you are still unsure about the prediction, please contact a medical professional for better advice."
-
+    time.sleep(1)
     return pre
 
 class ChatApplication:
