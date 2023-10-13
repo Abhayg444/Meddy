@@ -12,7 +12,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 
-%matplotlib inline
+# %matplotlib inline
 
 # %%
 train_data = pd.read_csv("Training.csv").dropna(axis = 1)

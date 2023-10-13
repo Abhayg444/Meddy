@@ -1,0 +1,185 @@
+{
+    "greeting": {
+        "phrases": ["hello", "hi", "hey", "greetings"],
+        "responses": ["Hello! How can I assist you today?", "Hi there! How can I help?", "Hey! What can I do for you?"]
+    },
+    "symptom_inquiry": {
+        "phrases": [
+            "I have a symptom",
+            "symptom inquiry",
+            "health issue",
+            "feeling unwell",
+            "I'm not feeling well",
+            "What's wrong with me?",
+            "I don't feel good",
+            "Can you help with my health?",
+            "I need medical advice"
+        ],
+        "responses": [
+            "I can help you with that. Please describe your symptoms.",
+            "I'm here to assist with your health concerns. What are your symptoms?",
+            "I'm sorry to hear that you're not feeling well. Please tell me more about your symptoms.",
+            "Of course, I'll do my best to assist you. What symptoms are you experiencing?",
+            "Let's work together to understand your symptoms. Please provide more details about how you're feeling."
+        ]
+    },
+    
+    "thanks": {
+        "phrases": ["thank you", "thanks", "appreciate it"],
+        "responses": ["You're welcome!", "You're welcome. If you have more questions, feel free to ask."]
+    },
+    "help": {
+        "phrases": [
+            "help",
+            "need assistance",
+            "what can you do",
+            "tell me your capabilities",
+            "how can you assist me",
+            "explain your functions"
+        ],
+        "responses": [
+            "I can provide information on symptoms and common health conditions. Just ask me.",
+            "I'm here to assist with health-related questions. Feel free to ask.",
+            "You can ask me about symptoms, diseases, treatments, and general health information.",
+            "I can help you find information on various health topics, including symptoms, causes, and treatments.",
+            "Feel free to ask any health-related questions, and I'll do my best to provide you with accurate information.",
+            "I can assist you with queries about diseases, medical conditions, and general health. What would you like to know?"
+        ]
+    },
+    "emergency_situation": {
+        "phrases": [
+            "I need urgent help",
+            "emergency situation",
+            "call 911",
+            "urgent assistance required",
+            "emergency medical help"
+        ],
+        "responses": [
+            "I'm not equipped to handle emergencies. Please call 911 or your local emergency services immediately if you're in a life-threatening situation.",
+            "Your safety is paramount. In case of an emergency, please call for immediate assistance.",
+            "I'm here to provide information, but for emergencies, it's crucial to contact 911 or your local emergency services without delay.",
+            "If you believe you're facing a medical emergency, please dial 911 or seek help from the nearest medical facility."
+        ]
+    },
+        "improve_health": {
+            "phrases": [
+                "how to improve health",
+                "tips for better health",
+                "ways to enhance well-being",
+                "health improvement advice"
+            ],
+            "responses": [
+                "Improving your health is a worthy goal. Here are some actionable tips to enhance your well-being:\n\n1. **Balanced Nutrition:** Focus on a balanced diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats. Minimize processed foods and excess sugar.\n\n2. **Regular Physical Activity:** Aim for at least 150 minutes of moderate-intensity aerobic exercise or 75 minutes of vigorous-intensity exercise per week. Include strength training exercises.\n\n3. **Adequate Hydration:** Drink plenty of water throughout the day to stay hydrated. Limit sugary beverages.\n\n4. **Quality Sleep:** Prioritize sleep by establishing a consistent sleep schedule and creating a comfortable sleep environment. Aim for 7-9 hours of sleep per night.\n\n5. **Stress Management:** Practice stress-reduction techniques such as deep breathing, meditation, yoga, or mindfulness. Manage stress to improve mental and physical health.\n\n6. **Limit Alcohol and Avoid Smoking:** Consume alcohol in moderation, if at all. Avoid smoking and exposure to secondhand smoke.\n\n7. **Regular Checkups:** Schedule routine checkups with your healthcare provider for preventive screenings and vaccinations.\n\n8. **Stay Socially Connected:** Maintain social connections with friends and loved ones. Strong relationships contribute to emotional well-being.\n\n9. **Safety First:** Use seat belts, helmets, and safety gear to prevent accidents. Follow safety guidelines at home and work.\n\n10. **Mental Health Care:** Prioritize your mental health. Seek support when needed, and don't hesitate to reach out to a mental health professional.\n\n11. **Limit Screen Time:** Reduce excessive screen time, especially before bedtime. Prioritize face-to-face interactions.\n\n12. **Hygiene Practices:** Follow good hygiene practices, including regular handwashing, to prevent illness.\n\n13. **Hygienic Food Handling:** Handle and prepare food safely to prevent foodborne illnesses.\n\n14. **Environmental Awareness:** Be mindful of your environment, and take steps to reduce exposure to pollutants and allergens.\n\n15. **Positive Mindset:** Cultivate a positive mindset by practicing gratitude and engaging in activities that bring joy and fulfillment.\n\nRemember that small, sustainable changes in your daily routine can lead to significant improvements in your overall health. Start with one or two changes at a time and gradually build healthier habits."
+            ]
+        },
+    "unknown_intent": {
+        "phrases": [],
+        "responses": ["I'm not sure I understand. Please rephrase your question or ask something else.", "I didn't catch that. Could you please provide more details?"]
+    },
+    "ok": {
+        "phrases": ["ok", "okay", "alright"],
+        "responses": ["Great!", "Alright.", "Okay.", "I understand."]
+    },
+    "yes": {
+        "phrases": ["yes", "yeah", "sure"],
+        "responses": ["Got it!", "Sure thing.", "Alright, please go ahead.", "Yes, how can I assist you further?"]
+    },
+    "about_bot": {
+        "phrases": ["who are you", "tell me about yourself", "what can you do"],
+        "responses": ["I am a health chatbot designed to provide information on symptoms and common health conditions. How can I assist you today?"]
+    },
+    "medication_query": {
+        "phrases": ["medicine for [condition]", "prescription for [condition]", "treatment for [condition]"],
+        "responses": ["I'm not a doctor, but I can provide general information. Please consult a healthcare professional for specific medical advice."]
+    },
+
+        "plain_replies1": {
+            "phrases": ["What are you doing?", "What r u doing", "how do you do"],
+            "responses": ["Nothing just random searching", " nothing just missing you", "nothing much, just feeling sleepy"]
+        },
+        "cute": {
+            "phrases": ["Awww", "so cute", "what a cute"],
+            "responses": ["heehee", "thank-you"]
+        },
+        "disgust": {
+            "phrases": ["eww", "so dirty", "dirty", "drty"],
+            "responses": ["(*--*)", "(*?*)"]
+        },
+        "dailywork": {
+            "phrases": ["i was busy with", "i was doing", "i was busy"],
+            "responses": ["okay-okay, no problem"]
+        },
+        "angry": {
+            "phrases": ["i am very angry", "angry"],
+            "responses": ["keep your self calm", "keep calm"]
+        },
+        "plain_replies2": {
+            "phrases": ["Tell me something about urself"],
+            "responses": ["I'm Serenity, an AI powered chatbot created using python, tensorflow, numpy and nltk, my creators are Abhay, Prajakta, Gaytri and Yash"]
+        },
+        "greetings": {
+            "phrases": ["Hello", "hi", "hey", "Greetings", "What's up", "how its going"],
+            "responses": ["Hello!!", "Hey there!!", "Hiii", "Hii, how are you ?"]
+        },
+        "goodbye": {
+            "phrases": ["Bye bye", "See you Soon!!", "Goodbye!"],
+            "responses": ["Goodbye!", "Bye bye", "Talk to you later!"]
+        },
+        "Name": {
+            "phrases": ["What is your name?", "Name"],
+            "responses": ["My name is Serenity", "Serenity, your bestie!! "]
+        },
+        "Questions about you": {
+            "phrases": ["How are you", "How r u", "how are you doing"],
+            "responses": ["I'm fine.", "I'm doing great.", "I'm fine, what about you?"]
+        },
+        "happy": {
+            "phrases": ["happy"],
+            "responses": ["Wow", "hahaha"]
+        },
+        "sad": {
+            "phrases": ["i'm sad", "i'm feeling sad"],
+            "responses": ["Don't be sad I'm with you!!", "you can talk to be if you have a problem.."]
+        },
+        "Congrats": {
+            "phrases": ["Completed", "won", "I'm the winner"],
+            "responses": ["Congratulations!!", "Congrats, to you!!"]
+        },
+        "sick": {
+            "phrases": ["not feeling okay", "having fever", "not well"],
+            "responses": ["What happened?", "Ooo take care.. :)"]
+        },
+        "stressed": {
+            "phrases": ["tension", "stress"],
+            "responses": ["Don't be stressed", "You don't have to take any tension..", "Don't be tensed."]
+        },
+        "depressed": {
+            "phrases": ["tired of ", "he/she/they doesn't understand", ""],
+            "responses": ["Dont't overwork yourself you are doing great..", "Leave them, you focus on yourself", "Take care of yourself..", "you are more important"]
+        },
+        "weather": {
+            "phrases": ["how's the weather?"],
+            "responses": ["i feel its great.."]
+        },
+        "selfquestion_basic": {
+            "phrases": ["hmmm", "acha", "ha"],
+            "responses": ["btw how are you doing?", "Hmmm", "heehee"]
+        },
+        "plain_replies": {
+            "phrases": ["ok", "okay"],
+            "responses": ["yes", "hmm"]
+        },
+        "Casual": {
+            "phrases": ["i'm fine", "i'm good", "well great"],
+            "responses": ["Good to see you in pink of health"]
+        },
+        "plain_replies3": {
+            "phrases": ["Do you know that", "do u know that", "This...."],
+            "responses": ["Tell me about that.."]
+        },
+        "mixed": {
+            "phrases": ["Umm fine, but i don't", "i don't know what to do"],
+            "responses": ["You should think about it", "I think you should take some deep breaths and think upon it"]
+        }
+    }
+ 

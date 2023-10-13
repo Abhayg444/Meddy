@@ -1,18 +1,30 @@
 import joblib
 import json
+import pandas as pd
 import numpy as np
 from statistics import mode
 from tkinter import *
 from fuzzywuzzy import fuzz
 import time
-BG_GRAY = "white"
-BG_COLOR = "white"
-TEXT_COLOR = "black"
-bot_name = "Meddy"
+import random
+import warnings
+from sklearn.exceptions import DataConversionWarning
 
-FONT = "Poppins 14"
-FONT_BOLD = "Helvetica 13 bold"
-wel = 'This is Meddy a Symptom based Diease Predictor\nEnter your Symptoms for Meddy to predict your \ndieases\n'
+# Disable the warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=DataConversionWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+
+df = pd.read_csv('training.csv')
+# Replace underscores with spaces in column names
+df.columns = df.columns.str.replace('_', ' ')
+symptoms_list = df.columns
+
+'''
+for symptom in symptoms_list:
+    print(symptom)
+    
+'''
 
 # Load the machine learning models and data dictionary
 loaded_svm_model = joblib.load('final_svm_model.pkl')
@@ -22,6 +34,28 @@ data_dict = joblib.load('data_dict.pkl')
 
 with open('disease_info.json', 'r') as file:
     disease_data = json.load(file)
+    
+with open('intents.json', 'r') as file:
+    intents = json.load(file)
+    
+def get_response(user_input):
+    user_input = user_input.lower()
+
+    # Initialize an empty list to store responses
+    matched_responses = []
+
+    # Check if the user input matches any intent in the intents.json file
+    for intent, data in intents.items():
+        for phrase in data['phrases']:
+            if phrase.lower() in user_input:
+                matched_responses.extend(data['responses'])
+
+    # If no intent is found, return a default response
+    if not matched_responses:
+        return ["I'm sorry, I don't understand your question."]
+
+    # Return a random response from the matched responses
+    return [random.choice(matched_responses)]
 
 
 def get_disease_info(disease_name):
@@ -81,6 +115,39 @@ def predictDisease(input_symptoms):
     pre += "\n If you are still unsure about the prediction, please contact a medical professional for better advice."
     time.sleep(1)
     return pre
+
+
+def process_user_input(user_input):
+    user_input = user_input.lower()
+    input_symptoms = [symptom.strip() for symptom in user_input.split(',')]
+
+    # Check if user input is in the symptoms list
+    valid_symptoms = [symptom for symptom in input_symptoms if symptom in symptoms_list]
+
+    if valid_symptoms:
+        prediction = predictDisease(','.join(valid_symptoms))
+    else:
+        # If the user input is not in the symptoms list, use the get_response function
+        response = get_response(user_input)
+        return response[0]  # Return the first response without brackets
+
+    return "Disease Prediction: " + prediction  # Return the first prediction without brackets
+
+'''
+user_input = ("high fever, dizziness, vomiting")  
+response = process_user_input(user_input)
+print(response)
+'''
+
+from tkinter import *
+BG_GRAY = "white"
+BG_COLOR = "white"
+TEXT_COLOR = "black"
+bot_name = "Meddy"
+
+FONT = "Poppins 14"
+FONT_BOLD = "Helvetica 13 bold"
+wel = "Welcome to Meddy Disease Predictor ! \n\n"
 
 class ChatApplication:
 
@@ -148,7 +215,7 @@ class ChatApplication:
         self.text_widget.insert(END, msg1)
         self.text_widget.configure(state=DISABLED)
         print(msg)
-        msg2 = f"{bot_name}: {predictDisease(msg)}\n\n"
+        msg2 = f"{bot_name}: {process_user_input(msg)}\n\n"
         self.text_widget.configure(state=NORMAL)
         self.text_widget.insert(END, msg2)
         self.text_widget.configure(state=DISABLED)
@@ -159,3 +226,4 @@ class ChatApplication:
 if __name__ == "__main__":
     app = ChatApplication()
     app.run()
+    
